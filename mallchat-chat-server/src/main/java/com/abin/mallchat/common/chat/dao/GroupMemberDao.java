@@ -182,13 +182,10 @@ public class GroupMemberDao extends ServiceImpl<GroupMemberMapper, GroupMember> 
      * @return 是否删除成功
      */
     public Boolean removeByGroupId(Long groupId, List<Long> uidList) {
-        if (CollectionUtil.isNotEmpty(uidList)) {
-            LambdaQueryWrapper<GroupMember> wrapper = new QueryWrapper<GroupMember>()
-                    .lambda()
-                    .eq(GroupMember::getGroupId, groupId)
-                    .in(GroupMember::getUid, uidList);
-            return this.remove(wrapper);
-        }
-        return false;
+        LambdaQueryWrapper<GroupMember> wrapper = new QueryWrapper<GroupMember>()
+                .lambda()
+                .eq(GroupMember::getGroupId, groupId)
+                .in(GroupMember::getUid, uidList);
+        return this.remove(wrapper);
     }
 }
