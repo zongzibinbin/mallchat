@@ -1,4 +1,4 @@
-package com.abin.mallchat.common.common.utils.sensitiveWord;
+package com.abin.mallchat.common.common.algorithm.sensitiveWord;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;

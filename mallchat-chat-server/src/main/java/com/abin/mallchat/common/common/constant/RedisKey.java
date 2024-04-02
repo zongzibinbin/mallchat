@@ -37,6 +37,11 @@ public class RedisKey {
     public static final String GROUP_INFO_STRING = "groupInfo:roomId_%d";
 
     /**
+     * 群组详情
+     */
+    public static final String GROUP_FRIEND_STRING = "groupFriend:roomId_%d";
+
+    /**
      * 用户token存放
      */
     public static final String USER_TOKEN_STRING = "userToken:uid_%d";

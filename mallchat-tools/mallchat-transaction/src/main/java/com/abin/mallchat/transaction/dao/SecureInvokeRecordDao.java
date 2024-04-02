@@ -22,7 +22,7 @@ public class SecureInvokeRecordDao extends ServiceImpl<SecureInvokeRecordMapper,
     public List<SecureInvokeRecord> getWaitRetryRecords() {
         Date now = new Date();
         //查2分钟前的失败数据。避免刚入库的数据被查出来
-        DateTime afterTime = DateUtil.offsetMinute(now, (int) SecureInvokeService.RETRY_INTERVAL_MINUTES);
+        DateTime afterTime = DateUtil.offsetMinute(now, -(int) SecureInvokeService.RETRY_INTERVAL_MINUTES);
         return lambdaQuery()
                 .eq(SecureInvokeRecord::getStatus, SecureInvokeRecord.STATUS_WAIT)
                 .lt(SecureInvokeRecord::getNextRetryTime, new Date())

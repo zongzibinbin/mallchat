@@ -11,7 +11,8 @@ import com.abin.mallchat.common.chat.domain.enums.GroupRoleAPPEnum;
 import com.abin.mallchat.common.chat.domain.enums.GroupRoleEnum;
 import com.abin.mallchat.common.chat.domain.enums.HotFlagEnum;
 import com.abin.mallchat.common.chat.domain.enums.RoomTypeEnum;
-import com.abin.mallchat.common.chat.domain.vo.request.*;
+import com.abin.mallchat.common.chat.domain.vo.request.ChatMessageMemberReq;
+import com.abin.mallchat.common.chat.domain.vo.request.GroupAddReq;
 import com.abin.mallchat.common.chat.domain.vo.request.member.MemberAddReq;
 import com.abin.mallchat.common.chat.domain.vo.request.member.MemberDelReq;
 import com.abin.mallchat.common.chat.domain.vo.request.member.MemberReq;
@@ -120,6 +121,9 @@ public class RoomAppServiceImpl implements RoomAppService {
             CursorPageBaseResp<Pair<Long, Double>> roomCursorPage = hotRoomCache.getRoomCursorPage(request);
             List<Long> roomIds = roomCursorPage.getList().stream().map(Pair::getKey).collect(Collectors.toList());
             page = CursorPageBaseResp.init(roomCursorPage, roomIds);
+        }
+        if (CollectionUtil.isEmpty(page.getList())) {
+            return CursorPageBaseResp.empty();
         }
         // 最后组装会话信息（名称，头像，未读数等）
         List<ChatRoomResp> result = buildContactResp(uid, page.getList());

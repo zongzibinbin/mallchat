@@ -1,4 +1,4 @@
-package com.abin.mallchat.common.common.algorithm.ac;
+package com.abin.mallchat.common.common.algorithm.sensitiveWord.ac;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

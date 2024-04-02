@@ -1,6 +1,6 @@
 package com.abin.mallchat.common.sensitive;
 
-import com.abin.mallchat.common.common.utils.sensitiveWord.IWordFactory;
+import com.abin.mallchat.common.common.algorithm.sensitiveWord.IWordFactory;
 import com.abin.mallchat.common.sensitive.dao.SensitiveWordDao;
 import com.abin.mallchat.common.sensitive.domain.SensitiveWord;
 import org.springframework.beans.factory.annotation.Autowired;

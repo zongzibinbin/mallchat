@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.abin.mallchat.common.common.event.UserBlackEvent;
 import com.abin.mallchat.common.common.event.UserRegisterEvent;
 import com.abin.mallchat.common.common.utils.AssertUtil;
-import com.abin.mallchat.common.common.utils.sensitiveWord.SensitiveWordBs;
+import com.abin.mallchat.common.common.algorithm.sensitiveWord.SensitiveWordBs;
 import com.abin.mallchat.common.user.dao.BlackDao;
 import com.abin.mallchat.common.user.dao.ItemConfigDao;
 import com.abin.mallchat.common.user.dao.UserBackpackDao;

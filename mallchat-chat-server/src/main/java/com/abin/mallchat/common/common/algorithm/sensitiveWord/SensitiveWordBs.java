@@ -1,4 +1,4 @@
-package com.abin.mallchat.common.common.utils.sensitiveWord;
+package com.abin.mallchat.common.common.algorithm.sensitiveWord;
 
 import java.util.List;
 

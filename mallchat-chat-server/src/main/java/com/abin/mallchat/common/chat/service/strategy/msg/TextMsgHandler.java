@@ -14,7 +14,7 @@ import com.abin.mallchat.common.common.domain.enums.YesOrNoEnum;
 import com.abin.mallchat.common.common.utils.AssertUtil;
 import com.abin.mallchat.common.common.utils.discover.PrioritizedUrlDiscover;
 import com.abin.mallchat.common.common.utils.discover.domain.UrlInfo;
-import com.abin.mallchat.common.common.utils.sensitiveWord.SensitiveWordBs;
+import com.abin.mallchat.common.common.algorithm.sensitiveWord.SensitiveWordBs;
 import com.abin.mallchat.common.user.domain.entity.User;
 import com.abin.mallchat.common.user.domain.enums.RoleEnum;
 import com.abin.mallchat.common.user.service.IRoleService;
