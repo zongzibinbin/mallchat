@@ -3,7 +3,9 @@ package com.abin.mallchat.common;
 import com.abin.mallchat.common.common.algorithm.sensitiveWord.ACFilter;
 import com.abin.mallchat.common.common.algorithm.sensitiveWord.ACProFilter;
 import com.abin.mallchat.common.common.algorithm.sensitiveWord.DFAFilter;
+import com.abin.mallchat.common.common.algorithm.sensitiveWord.SensitiveWordFilter;
 import org.junit.Test;
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 /**
@@ -30,13 +32,21 @@ public class SensitiveTest {
     }
 
     @Test
-    public void ACPro()
-    {
-        List<String> sensitiveList = Arrays.asList("白痴", "你是白痴", "白痴吗");
-        ACProFilter acProFilter=new ACProFilter();
-        acProFilter.loadWord(sensitiveList);
-        System.out.println(acProFilter.filter("你是白痴吗"));
+    public void ACPro()throws Exception {
+        // 结果：*****
+        System.out.println(testUtil(Arrays.asList("白痴", "你是白痴", "白痴吗"), "你是白痴吗", ACProFilter.class));
+        // 结果：*******
+        System.out.println(testUtil(Arrays.asList("白痴", "白痴吗你是"), "白痴吗你是白痴", ACProFilter.class));
+        // 结果：*****小**明
+        System.out.println(testUtil(Arrays.asList("白痴", "白痴吗你是"), "白痴吗你是小白痴明", ACProFilter.class));
     }
+    public String testUtil(List<String> sensitiveList, String pattern, Class<? extends SensitiveWordFilter> clazz) throws Exception {
+        Constructor constructor = clazz.getConstructor(); // 获取无参构造
+        SensitiveWordFilter wordFilter = (SensitiveWordFilter)constructor.newInstance();
+        wordFilter.loadWord(sensitiveList);
+        return wordFilter.filter(pattern);
+    }
+
     @Test
     public void DFAMulti() {
         List<String> sensitiveList = Arrays.asList("白痴", "你是白痴", "白痴吗");
