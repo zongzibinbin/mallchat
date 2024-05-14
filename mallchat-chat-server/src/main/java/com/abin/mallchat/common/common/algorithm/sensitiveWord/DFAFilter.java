@@ -67,7 +67,6 @@ public final class DFAFilter implements SensitiveWordFilter {
             }
             Word word = root;
             int start = index;
-            boolean found = false;
             for (int i = index; i < result.length(); i++) {
                 c = result.charAt(i);
                 if (skip(c)) {
@@ -81,16 +80,13 @@ public final class DFAFilter implements SensitiveWordFilter {
                     break;
                 }
                 if (word.end) {
-                    found = true;
                     for (int j = start; j <= i; j++) {
                         result.setCharAt(j, replace);
                     }
                     index = i;
                 }
             }
-            if (!found) {
-                index++;
-            }
+            index++;
         }
         return result.toString();
     }
