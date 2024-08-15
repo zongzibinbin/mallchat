@@ -29,7 +29,7 @@ public class UserApplyDao extends ServiceImpl<UserApplyMapper, UserApply> {
     public UserApply getFriendApproving(Long uid, Long targetUid) {
         return lambdaQuery().eq(UserApply::getUid, uid)
                 .eq(UserApply::getTargetId, targetUid)
-                .eq(UserApply::getStatus, ApplyStatusEnum.WAIT_APPROVAL)
+                .eq(UserApply::getStatus, ApplyStatusEnum.WAIT_APPROVAL.getCode())
                 .eq(UserApply::getType, ApplyTypeEnum.ADD_FRIEND.getCode())
                 .one();
     }
