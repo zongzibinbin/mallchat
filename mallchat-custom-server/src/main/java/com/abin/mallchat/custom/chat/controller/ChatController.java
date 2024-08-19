@@ -43,6 +43,7 @@ import java.util.Set;
 @Api(tags = "聊天室相关接口")
 @Slf4j
 public class ChatController {
+
     @Autowired
     private ChatService chatService;
     @Autowired
@@ -52,6 +53,7 @@ public class ChatController {
     @ApiOperation("会话列表")
     public ApiResult<CursorPageBaseResp<ChatRoomResp>> getRoomPage(@Valid CursorPageBaseReq request) {
         return ApiResult.success(chatService.getRoomPage(request, RequestHolder.get().getUid()));
+
     }
 
     @GetMapping("/public/member/page")
@@ -59,6 +61,7 @@ public class ChatController {
     @FrequencyControl(time = 120, count = 10, target = FrequencyControl.Target.IP)
     public ApiResult<CursorPageBaseResp<ChatMemberResp>> getMemberPage(@Valid CursorPageBaseReq request) {
         black(request);
+
         CursorPageBaseResp<ChatMemberResp> memberPage = chatService.getMemberPage(request);
         filterBlackMember(memberPage);
         return ApiResult.success(memberPage);
