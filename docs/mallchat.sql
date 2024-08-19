@@ -36,10 +36,8 @@ CREATE TABLE `message`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
   `room_id` bigint(20) NOT NULL COMMENT '会话表id',
   `from_uid` bigint(20) NOT NULL COMMENT '消息发送者uid',
-  `content` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '消息内容',
-  `reply_msg_id` bigint(20) NULL DEFAULT NULL COMMENT '回复的消息内容',
-  `status` int(11) NOT NULL COMMENT '消息状态 0正常 1删除',
-  `gap_count` int(11) NULL DEFAULT NULL COMMENT '与回复的消息间隔多少条',
+  
+
   `type` int(11) NULL DEFAULT 1 COMMENT '消息类型 1正常文本 2.撤回消息',
   `extra` json DEFAULT NULL COMMENT '扩展信息',
   `create_time` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) COMMENT '创建时间',
