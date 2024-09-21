@@ -25,6 +25,7 @@ import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ import java.util.Objects;
 @Component
 public class MsgSendConsumer implements RocketMQListener<MsgSendMessageDTO> {
     @Autowired
+    @Lazy
     private WebSocketService webSocketService;
     @Autowired
     private ChatService chatService;

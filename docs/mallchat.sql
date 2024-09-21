@@ -1,6 +1,9 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
+-- 创建数据库
+CREATE DATABASE if not exists mallchat;
+-- 切换库
+use mallchat;
 -- ----------------------------
 -- Table structure for item_config
 -- ----------------------------

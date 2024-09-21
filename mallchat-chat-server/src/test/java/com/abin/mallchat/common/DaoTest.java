@@ -18,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -69,6 +70,7 @@ public class DaoTest {
     }
 
     @Autowired
+//    @Lazy
     private RedissonClient redissonClient;
     @Autowired
     private LoginService loginService;

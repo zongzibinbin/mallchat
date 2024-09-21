@@ -3,6 +3,7 @@ package com.abin.mallchat.transaction.service;
 import com.abin.mallchat.transaction.annotation.SecureInvoke;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 
@@ -14,6 +15,7 @@ import org.springframework.messaging.support.MessageBuilder;
 public class MQProducer {
 
     @Autowired
+    @Lazy
     private RocketMQTemplate rocketMQTemplate;
 
     public void sendMsg(String topic, Object body) {

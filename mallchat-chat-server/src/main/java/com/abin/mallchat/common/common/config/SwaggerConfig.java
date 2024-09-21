@@ -47,6 +47,7 @@ public class SwaggerConfig {
                         //联系人信息
                         .contact(new Contact("阿斌", "http://www.mallchat.cn", "972627721@qq.com"))
                         .build())
+                .enable(true)
                 .select()
                 //指定接口的位置
                 .apis(RequestHandlerSelectors

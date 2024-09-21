@@ -11,7 +11,7 @@ mybatis-plus:
 spring:
   profiles:
     #运行的环境
-    active: my-test
+    active: local
   application:
     name: mallchat
   datasource:
